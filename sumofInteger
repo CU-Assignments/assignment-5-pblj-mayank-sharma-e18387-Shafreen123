@@ -1,0 +1,35 @@
+
+    import java.util.ArrayList;
+import java.util.Scanner;
+
+public class sumofInteger {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        ArrayList<Integer> numbers = new ArrayList<>();
+
+        System.out.print("Enter numbers separated by spaces: ");
+        String input = sc.nextLine();
+        String[] tokens = input.split("\\s+");
+
+        // Autoboxing: converting primitive int to Integer object and adding to ArrayList
+        for (String token : tokens) {
+            try {
+                int num = Integer.parseInt(token); // parses string to int
+                numbers.add(num); // autoboxes int to Integer
+            } catch (NumberFormatException e) {
+                System.out.println("Invalid number skipped: " + token);
+            }
+        }
+
+        // Unboxing: extracting int from Integer for summation
+        int sum = 0;
+        for (Integer num : numbers) {
+            sum += num; // unboxing happens here
+        }
+
+        System.out.println("Sum of numbers: " + sum);
+    }
+}
+
+    
+
